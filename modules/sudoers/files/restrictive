@@ -1,0 +1,69 @@
+###
+### default production sudoers
+### this sudoers file should go on any non-dev server
+###
+
+### !!!
+### alias host-specific entries
+### !!!
+
+Host_Alias      HOSTTYPE1 = server01
+Host_Alias	HOSTTYPE2 = host*, vm-host*
+
+### !!!
+### alias command sets
+### !!!
+
+Cmnd_Alias DELEGATING = /bin/chown, /bin/chmod, /bin/chgrp 
+Cmnd_Alias DRIVERS = /sbin/modprobe
+Cmnd_Alias NETWORKING = /sbin/route, /sbin/ifconfig, /bin/ping, /usr/bin/net, /sbin/iptables, /usr/bin/rfcomm, /usr/bin/wvdial, /sbin/iwconfig, /sbin/mii-tool, /sbin/ethtool, /usr/sbin/tcpdump, /bin/netstat
+Cmnd_Alias SOFTWARE = /bin/rpm, /usr/bin/up2date, /usr/bin/yum, /usr/bin/createrepo
+Cmnd_Alias SERVICES = /sbin/service, /sbin/chkconfig
+Cmnd_Alias LOCATE = /usr/sbin/updatedb
+Cmnd_Alias STORAGE = /bin/mount, /bin/umount
+Cmnd_Alias PROCESSES = /bin/nice, /bin/kill, /usr/bin/kill, /usr/bin/killall, /usr/bin/reboot, /sbin/fuser, /usr/bin/strace, /usr/sbin/lsof
+Cmnd_Alias LOGUTIL = /usr/bin/zgrep, /bin/grep, /usr/bin/less, /usr/bin/zless, /usr/bin/tail
+Cmnd_Alias RUBYGEM = /usr/bin/rake
+
+Defaults  env_reset
+Defaults  timestamp_timeout = 600
+Defaults  env_keep = "COLORS DISPLAY HOSTNAME HISTSIZE INPUTRC KDEDIR \
+                     LS_COLORS MAIL PS1 PS2 QTDIR USERNAME \
+                     LANG LC_ADDRESS LC_CTYPE LC_COLLATE LC_IDENTIFICATION \
+                     LC_MEASUREMENT LC_MESSAGES LC_MONETARY LC_NAME LC_NUMERIC \
+                     LC_PAPER LC_TELEPHONE LC_TIME LC_ALL LANGUAGE LINGUAS \
+                     _XKB_CHARSET XAUTHORITY SSH_CLIENT SSH_CONNECTION"
+
+### !!!
+### local accounts
+### !!!
+
+# local full admin users (root login should be disabled, opsadm and opsproc should be key-based only)
+# nopasswd is on opsadm/opsproc, because they don't have one
+root        ALL=(ALL) ALL
+poweruser      ALL=(ALL) NOPASSWD: ALL
+
+# local process account
+appuser          ALL=(root) NOPASSWD: /sbin/fuser
+
+### !!!
+### local groups
+### !!!
+
+# the wheel local group is just here for local OS compatibility
+%wheel          ALL=NOPASSWD: ALL
+
+# this local group is used for local mail accounts, which will not have ldap system auth
+
+%mailman        HOSTTYPE1=(ALL) NOPASSWD: ALL
+
+### !!!
+### ldap groups
+### !!!
+
+# ldap-based full admin
+%ldap-group1      ALL=(ALL) ALL
+
+# ldap-based groups for the powerful and the less powerful
+%ldap-group2         ALL=NETWORKING, SOFTWARE, SERVICES, STORAGE, DELEGATING, PROCESSES, LOCATE, DRIVERS, LOGUTIL, RUBYGEM
+%ldap-group3         ALL=SOFTWARE

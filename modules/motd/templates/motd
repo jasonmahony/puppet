@@ -1,0 +1,4 @@
+------------------------------------------------------------------------------
+<%= fqdn %> :: <%= ipaddress %>
+<%= "#{operatingsystem.downcase} #{operatingsystemrelease.strip} (#{architecture})" %> :: <%= "#{kernel.downcase} #{kernelrelease}" %>
+------------------------------------------------------------------------------

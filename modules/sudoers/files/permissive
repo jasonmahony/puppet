@@ -1,0 +1,52 @@
+###
+### default dev sudoers
+### this sudoers file should go on any dev, qa, or stage servers only
+###
+
+### !!!
+### alias host-specific entries
+### !!!
+
+#Host_Alias	SERVERTYPE = server01 server02 server03
+
+Defaults  env_reset
+Defaults  timestamp_timeout = 600
+Defaults  env_keep = "COLORS DISPLAY HOSTNAME HISTSIZE INPUTRC KDEDIR \
+                     LS_COLORS MAIL PS1 PS2 QTDIR USERNAME \
+                     LANG LC_ADDRESS LC_CTYPE LC_COLLATE LC_IDENTIFICATION \
+                     LC_MEASUREMENT LC_MESSAGES LC_MONETARY LC_NAME LC_NUMERIC \
+                     LC_PAPER LC_TELEPHONE LC_TIME LC_ALL LANGUAGE LINGUAS \
+                     _XKB_CHARSET XAUTHORITY SSH_CLIENT SSH_CONNECTION"
+
+### !!!
+### local accounts
+### !!!
+
+# local full admin users (root login should be disabled, opsadm and opsproc should be key-based only)
+root        ALL=(ALL) ALL
+opsadm      ALL=(ALL) NOPASSWD: ALL
+#user1     ALL=(root) NOPASSWD: /sbin/lvm, /sbin/scsi_id, /sbin/dmsetup
+
+# I'm all powerful but accountable
+jason        ALL=(ALL) NOPASSWD: ALL
+
+# local process account
+#user2          ALL=(root) NOPASSWD: /sbin/fuser
+
+### !!!
+### local groups
+### !!!
+
+# the wheel local group is just here for local OS compatibility
+%wheel          ALL=NOPASSWD: ALL
+
+# this local group is for local bounce accounts, which will not have ldap system auth
+
+#%svradm        SERVERTYPE=(ALL) NOPASSWD: ALL
+
+### !!!
+### ldap groups
+### !!!
+
+# ldap-based full admin groups
+#%ldap-group      ALL=(ALL) ALL

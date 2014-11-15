@@ -1,0 +1,7 @@
+DEVICE=eth0
+BOOTPROTO=static
+ONBOOT=yes
+IPADDR=<%= ipaddress_eth0 %>
+NETMASK=<%= netmask_eth0 %>
+NETWORK=<%= network_eth0 %>
+GATEWAY=<%= gateway %>

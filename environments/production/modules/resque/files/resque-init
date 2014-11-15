@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# Puppet managed init script for resque workers and scheduler
+#
+
+# Start the resque upstart scripts
+start() {
+        for i in /etc/init/resque-*
+        do name=`echo $i | sed 's/.conf//g' | sed 's/\/etc\/init\///g'`; /sbin/start $name
+        done
+}
+# Stop resque
+stop() {
+        for i in /etc/init/resque-*
+        do name=`echo $i | sed 's/.conf//g' | sed 's/\/etc\/init\///g'`; /sbin/stop $name
+        done
+        kill -s QUIT `ps -ef | grep -v grep | egrep 'resque-|environment' | awk {'print$2'}`
+}
+### main logic ###
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  *)
+        echo $"Usage: $0 {start|stop}"
+        exit 1
+esac
+exit 0

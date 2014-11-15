@@ -1,0 +1,4 @@
+PGDATA=/db/pgsql/data
+PGLOG=/db/pgsql/pgstartup.log
+PGUPLOG=/db/pgsql/pgupgrade.log
+PGXLOG=/db/log/pg_xlog
