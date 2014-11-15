@@ -15,5 +15,5 @@ node /^pg\{2}.example.com$/ inherits base {
 }
 
 node "centos.localdomain" {
-  include postgres, sudoers
+  include postgres, sudoers, ntp, ssh, users, groups, sudoers, snmp, motd
 }
