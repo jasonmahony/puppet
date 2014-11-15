@@ -1,7 +1,7 @@
 class snmp {
 
   $packages = [ 'net-snmp', 'net-snmp-utils', 'net-snmp-libs' ]
-  package { $packages: ensure => latest }
+  package { $packages: ensure => latest, allow_virtual => false }
   
   service { snmpd:
     ensure     => 'running',
