@@ -13,3 +13,7 @@ node /^app\d{2}.example.com$/ inherits base {
 node /^pg\{2}.example.com$/ inherits base {
   include postgres
 }
+
+node centos.localdomain {
+  include postgres, sudoers
+}
