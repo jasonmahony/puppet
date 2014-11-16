@@ -1,6 +1,7 @@
 ---
 classes:
   - apache
+  - postgres
 
 sudoers::access_level: "restrictive"
 postgres::listen_address: "*"
