@@ -1,6 +1,6 @@
 ==========
-Sample Puppet Infrastructure for CentOS 6.x
+Puppet Infrastructure Using Hiera
 ==========
-A Puppet layout using Hiera and a variety of modules.
+A Puppet layout using Hiera designed on CentOS.
 ----------
 Jason Mahony
