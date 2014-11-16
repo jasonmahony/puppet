@@ -9,10 +9,10 @@ class ssh ( $access_level ){
   }
   
   file { '/etc/ssh/ssh_config':
+    ensure  => present,
     owner   => root,
     group   => root,
     mode    => '0644',
-    ensure  => file,
     require => Package[ 'openssh-clients' ]
   }
   
@@ -22,18 +22,18 @@ class ssh ( $access_level ){
     notify        => Service[ 'sshd' ],
     allow_virtual => false
   }
- 
+
   service { 'sshd':
-    name       => sshd,
     ensure     => running,
+    name       => sshd,
     enable     => true,
     hasstatus  => true,
     hasrestart => true
   }
   
   file { '/etc/ssh/keys':
-    mode         => '0644',
     ensure       => present,
+    mode         => '0644',
     source       => 'puppet:///modules/ssh/keys',
     recurse      => true,
     recurselimit => 1,
