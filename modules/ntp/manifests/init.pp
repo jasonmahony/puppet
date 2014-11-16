@@ -4,7 +4,7 @@ class ntp {
   Package { ensure => latest }
   File { ensure => present, owner => root, group => root, mode => 644, require => Package['ntp'], backup => ".puppetbak" }
   
-  package { ntp: }
+  package { ntp: allow_virtual => false }
 
   file { '/etc/ntp.conf': source => "$source/ntp.conf" }  
   file { '/etc/ntp/step-tickers': content => template("ntp/steptickers") }
