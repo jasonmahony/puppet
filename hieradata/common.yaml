@@ -1,0 +1,8 @@
+---
+classes:
+  - ntp
+  - snmp
+  - ssh
+  - motd
+  - users
+  - groups

@@ -1,0 +1,8 @@
+---
+classes:
+  - apache
+
+sudoers::access_level: "permissive"
+postgres::listen_address: "localhost.localdomain"
+postgres::max_connections: "100"
+resque::rails_env: "dev"

@@ -1,0 +1,8 @@
+---
+classes:
+  - apache
+
+sudoers::access_level: "restrictive"
+postgres::listen_address: "*"
+postgres::max_connections: "800"
+resque::rails_env: "production"
