@@ -1,7 +1,7 @@
 class postgres (
 
-	  ### install
-	  $postgres_version = $postgres::params::postgres_version,
+    ### install
+    $postgres_version = $postgres::params::postgres_version,
 
     ### config
     $lisen_address = $postgres::params::listen_address,
@@ -11,13 +11,13 @@ class postgres (
     $archive_command_equals_line = $postgres::params::archive_command_equals_line,
     $service = $postgres::params::service,
 
-) 
+)
 inherits postgres::params {
 
-    anchor { "postgres::begin": } ->
-    class { "postgres::install": } ->
-    class { "postgres::initialize": } ->
-    class { "postgres::config": } ->
-    anchor { "postgres::end": }
+    anchor { 'postgres::begin': } ->
+    class { 'postgres::install': } ->
+    class { 'postgres::initialize': } ->
+    class { 'postgres::config': } ->
+    anchor { 'postgres::end': }
 
 }

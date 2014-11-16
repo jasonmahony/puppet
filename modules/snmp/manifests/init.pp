@@ -1,29 +1,29 @@
 class snmp {
 
-  $source = "puppet:///modules/snmp"
+  $source = 'puppet:///modules/snmp'
   $packages = [ 'net-snmp', 'net-snmp-utils', 'net-snmp-libs' ]
   package { $packages: ensure => latest, allow_virtual => false }
   
-  service { snmpd:
+  service { 'snmpd':
     ensure     => 'running',
-    enable     => 'true',
-    hasstatus  => 'true',
-    hasrestart => 'true',
+    enable     => true,
+    hasstatus  => true,
+    hasrestart => true,
     require    => Package['net-snmp'],
-    subscribe  => File['/etc/snmp/snmpd.conf', '/etc/sysconfig/snmpd.options']  
+    subscribe  => File['/etc/snmp/snmpd.conf', '/etc/sysconfig/snmpd.options']
   }
   
   file { '/etc/snmp/snmpd.conf':
-    owner  => 'root',
-    group  => 'root',
-    source => "$source/snmpd.conf",
+    owner   => 'root',
+    group   => 'root',
+    source  => "${source}/snmpd.conf",
     require => Package[ $packages ]
-  }  
+  }
 
   file { '/etc/sysconfig/snmpd.options':
     owner  => 'root',
     group  => 'root',
-    source => "$source/sysconfig_snmpd.options",
-  }  
+    source => "${source}/sysconfig_snmpd.options",
+  }
 
 }

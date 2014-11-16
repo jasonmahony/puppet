@@ -9,13 +9,13 @@ class apache (
   
   ### service.pp
   $service = $apache::params::service,
-) 
+)
 inherits apache::params {
 
-    anchor { "apache::begin": } ->
-    class { "apache::install": } ->
-    class { "apache::config": } ->
-    class { "apache::service": } ->
-    anchor { "apache::end": }
+    anchor { 'apache::begin': } ->
+    class { 'apache::install': } ->
+    class { 'apache::config': } ->
+    class { 'apache::service': } ->
+    anchor { 'apache::end': }
 
 }

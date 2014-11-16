@@ -6,12 +6,12 @@ class users {
 
 ## Resource defaults for user accounts
 
-  User { ensure => present, shell => '/bin/bash' }    
+  User { ensure => present, shell => '/bin/bash' }
 
   user { 'puppet':
     comment => 'Puppet Service Account',
     home    => '/var/lib/puppet',
-    shell => '/sbin/nologin',
+    shell   => '/sbin/nologin',
     uid     => '52',
     gid     => '52'
   }
@@ -25,9 +25,9 @@ class users {
   }
 
   file { '/home/jason':
-    ensure => directory,
-    owner   => "jason",
-    group   => "jason",
+    ensure  => directory,
+    owner   => 'jason',
+    group   => 'jason',
     require => User['jason']
   }
   
