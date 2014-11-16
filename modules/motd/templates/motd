@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------
 <%= fqdn %> :: <%= ipaddress %>
 <%= "#{operatingsystem.downcase} #{operatingsystemrelease.strip} (#{architecture})" %> :: <%= "#{kernel.downcase} #{kernelrelease}" %>
-Welcome, this box is used in the <%= "#{environment}" => environment.
+Welcome, this box is used in the <%= "#{environment}" %> environment.
 ------------------------------------------------------------------------------
