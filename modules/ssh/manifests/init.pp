@@ -1,7 +1,5 @@
-class ssh {
-  
-  $access_level = "permissive"
-  
+class ssh ( $access_level ){
+
   package { "openssh-clients": ensure => latest, allow_virtual => false }
   
   package { "openssh": 
