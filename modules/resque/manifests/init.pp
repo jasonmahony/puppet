@@ -1,5 +1,5 @@
-class resque {
-  $rails_env = "dev"
+class resque ( $rails_env ) {
+  
   $source = "puppet:///modules/resque"
 
   # Passing parameters to a file template
