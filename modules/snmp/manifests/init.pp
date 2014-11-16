@@ -1,5 +1,6 @@
 class snmp {
 
+  $source = "puppet:///modules/snmp"
   $packages = [ 'net-snmp', 'net-snmp-utils', 'net-snmp-libs' ]
   package { $packages: ensure => latest, allow_virtual => false }
   
@@ -15,14 +16,14 @@ class snmp {
   file { '/etc/snmp/snmpd.conf':
     owner  => 'root',
     group  => 'root',
-    source => 'puppet:///modules/snmp/snmpd.conf',
-    require => Package[ $packages ],
+    source => "$source/snmpd.conf",
+    require => Package[ $packages ]
   }  
 
   file { '/etc/sysconfig/snmpd.options':
     owner  => 'root',
     group  => 'root',
-    source => 'puppet:///modules/snmp/sysconfig_snmpd.options',
+    source => "$source/sysconfig_snmpd.options",
   }  
 
 }

@@ -13,5 +13,5 @@ env PATH=/opt/ruby/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/
 chdir /opt/sites/current
 
 script
-   exec su -c "source /usr/local/rvm/scripts/rvm; cd /opt/sites/current ; INTERVAL=1 QUEUE=oceans_<%= @resque_queue %> RAILS_ENV=dev bundle exec rake environment resque:work_dont_fork" deploy
+   exec su -c "source /usr/local/rvm/scripts/rvm; cd /opt/sites/current ; INTERVAL=1 QUEUE=oceans_<%= @resque_queue %> RAILS_ENV=<%= rails_env %> bundle exec rake environment resque:work_dont_fork" deploy
 end script
