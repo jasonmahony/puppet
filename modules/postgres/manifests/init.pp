@@ -9,8 +9,7 @@ class postgres (
     $wal_level = $postgres::params::wal_level,
     $archive_mode = $postgres::params::archive_mode,
     $archive_command_equals_line = $postgres::params::archive_command_equals_line,
-    $service = $postgres::params::service,
-
+    $service = $postgres::params::service
 )
 inherits postgres::params {
 
