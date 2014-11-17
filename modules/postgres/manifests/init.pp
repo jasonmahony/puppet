@@ -18,5 +18,4 @@ inherits postgres::params {
     class { 'postgres::initialize': } ->
     class { 'postgres::config': } ->
     anchor { 'postgres::end': }
-
 }
