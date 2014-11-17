@@ -2,9 +2,15 @@
 classes:
   - apache
   - postgres
+  - mysql::server
+  - mysql::client
 
 sudoers::access_level: "permissive"
 ssh::access_level: "permissive"
 postgres::listen_address: "localhost.localdomain"
 postgres::max_connections: "100"
 resque::rails_env: "dev"
+mysql::client::package_ensure: "present"
+mysql::server::includedir: "/db/mysql"
+mysql::server::package_ensure: "present"
+mysql::server::service_enabled: "true"

@@ -49,4 +49,4 @@ jason        ALL=(ALL) NOPASSWD: ALL
 ### !!!
 
 # ldap-based full admin groups
-#%ldap-group      ALL=(ALL) ALL
+# %ldap-group      ALL=(ALL) ALL

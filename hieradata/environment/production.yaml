@@ -3,7 +3,7 @@ classes:
   - apache
   - postgres
 
-sudoers::access_level: "restrictive"
+sudoers::access_level: "permissive"
 ssh::access_level: "restrictive"
 postgres::listen_address: "*"
 postgres::max_connections: "800"
