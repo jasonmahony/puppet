@@ -4,3 +4,4 @@ classes:
   - resque
 
 resque::rails_env: "dev"
+apache::server_name: "centos.localdomain"
