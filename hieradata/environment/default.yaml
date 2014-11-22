@@ -1,7 +1,3 @@
 ---
-classes:
-  - apache
-
 sudoers::access_level: "permissive"
 ssh::access_level: "permissive"
-apache::server_name: "www.website.com"
