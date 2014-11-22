@@ -1,0 +1,6 @@
+---
+classes:
+  - apache
+
+sudoers::access_level: "permissive"
+ssh::access_level: "permissive"
