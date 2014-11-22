@@ -4,3 +4,4 @@ classes:
 
 sudoers::access_level: "permissive"
 ssh::access_level: "permissive"
+http::server_name: "www.website.com"

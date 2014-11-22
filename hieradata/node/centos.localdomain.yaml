@@ -2,3 +2,5 @@
 classes:
   - apache
   - resque
+
+resque::rails_env: "dev"
