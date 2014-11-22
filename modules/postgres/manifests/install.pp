@@ -8,11 +8,11 @@ class postgres::install {
   Package { ensure => installed, allow_virtual => false }
   $source = 'puppet:///modules/postgres'
   
-  package { $postgres_version: }
-  package { $postgres_version-server: }
-  package { $postgres_version-libs: }
-  package { $postgres_version-contrib: }
-  package { $postgres_version-devel: }
+  package { "$postgres_version": }
+  package { "${postgres_version}-server": }
+  package { "${$postgres_version}-libs": }
+  package { "${postgres_version}-contrib": }
+  package { "${postgres_version}-devel": }
   
   # set up pgsql directories (puppet won't create intermediate dirs)
   # install allows data and log dirs to be on different partitions (/db and /db/log)
