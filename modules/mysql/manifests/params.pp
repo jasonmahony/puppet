@@ -296,7 +296,7 @@ class mysql::params {
       'expire_logs_days'      => '10',
       'key_buffer_size'       => '16M',
       'log-error'             => $mysql::params::log_error,
-      'max_allowed_packet'    => '16M',
+      'max_allowed_packet'    => '32M',
       'max_binlog_size'       => '100M',
       'max_connections'       => '151',
       'myisam_recover'        => 'BACKUP',

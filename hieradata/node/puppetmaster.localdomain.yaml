@@ -3,6 +3,5 @@ classes:
   - mysql::server
   - mysql::client
 
-mysql::max_allowed_packet: '32M'
 sudoers::access_level: "permissive"
 ssh::access_level: "permissive"
