@@ -3,10 +3,10 @@ Open-Source Puppet Infrastructure Using Hiera
 ==========
 
 A Puppet layout using Hiera supporting Puppet Dashboard.
-```
+`
  Supports RHEL/CentOS 6 with Puppet v3.7.3.
  Assumes install directory (confdir) is /etc/puppet and puppetmaster.localdomain is the FQDN of the puppetmaster.
-```
+`
 
 To install:
 ```
