@@ -1,0 +1,17 @@
+[main]
+    vardir = /var/lib/puppet
+    logdir = /var/log/puppet
+    rundir = /var/run/puppet
+    ssldir = $vardir/ssl
+    confdir = /etc/puppet
+    ca_server = puppetmaster.localdomain
+    pluginsync = true
+    certificate_revocation = false
+
+[agent]
+    classfile   = $vardir/classes.txt
+    localconfig = $vardir/localconfig
+    report      = true
+    server      = puppetmaster.localdomain
+    environment = default
+
