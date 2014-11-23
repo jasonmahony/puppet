@@ -1,4 +1,3 @@
-==========
 Open-Source Puppet Infrastructure Using Hiera
 ==========
 
