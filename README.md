@@ -1,5 +1,5 @@
 Open-Source Puppet Infrastructure Using Hiera
-==========
+======
 
 A Puppet layout using Hiera supporting Puppet Dashboard.
 * Supports RHEL/CentOS 6 with Puppet v3.7.3.
@@ -19,5 +19,5 @@ Puppet-Dashboard
 5) On puppetmaster node (or separate node) install puppet-dashboard RPM and follow guide below
   https://docs.puppetlabs.com/dashboard/manual/1.2/bootstrapping.html
 ```
-------------
+---
 Jason Mahony
